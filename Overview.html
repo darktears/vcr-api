@@ -3,19 +3,14 @@
 
 <html lang=en>
  <head profile="http://dublincore.org/documents/2008/08/04/dc-html/ ">
-  <title>VCR API</title>
+  <title>VHS API</title>
 
   <link href="http://purl.org/dc/terms/" rel=schema.dcterms>
   <link href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright"
    rel=dcterms.rights>
-  <meta content="CSS Transitions" name=dcterms.title>
+  <meta content="VHS API" name=dcterms.title>
   <meta content=text name=dcterms.type>
   <meta content=2013-02-20 name=dcterms.issued>
-  <meta content="http://dev.w3.org/csswg/css3-transitions/"
-   name=dcterms.creator>
-  <meta content=W3C name=dcterms.publisher>
-  <meta content="http://dev.w3.org/csswg/css3-transitions/"
-   name=dcterms.identifier>
   <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
   <link href="../default.css" rel=stylesheet type="text/css">
   <style type="text/css">
@@ -36,7 +31,7 @@
    <p><a href="http://www.w3.org/"><img alt=W3C height=48
     src="http://www.w3.org/Icons/w3c_home" width=72></a> <!--end-logo-->
 
-   <h1>Web VCR API</h1>
+   <h1>Web VHS API</h1>
 
    <h2 class="no-num no-toc" id=longstatus-date>Unofficial Draft 1 April
     1989</h2>
@@ -63,14 +58,14 @@
     <dt>Issues list:
 
     <dd><a
-     href="https://www.w3.org/Bugs/Public/buglist.cgi?query_format=advanced&amp;product=CSS&amp;component=Transitions&amp;resolution=---&amp;cmdtype=doit">in
+     href="https://www.w3.org/Bugs/Public/buglist.cgi?query_format=advanced&amp;product=CSS&amp;component=VHS&amp;resolution=---&amp;cmdtype=doit">in
      Bugzilla</a>
 
     <dt>Discussion:
 
     <dd><a
      href="http://lists.w3.org/Archives/Public/www-style/">tape-wg@w3.org</a>
-     with subject line “<kbd>[vcr-api] <var>… message topic
+     with subject line “<kbd>[vhs-api] <var>… message topic
      …</var></kbd>”
 
     <dt>Test suite:
@@ -100,17 +95,20 @@
 
   <h2 class="no-num no-toc" id=abstract>Abstract</h2>
 
-  <p>With the VCR being abandoned for several years and with the tape lifetime almost reaching its limit, it is very useful for some user agent
-  to be able to connect a VCR reader on their computer or smartphone and be able to read/record/stream their old VHDS tapes.
+  <p>
+  The Video Home System(better known by its abbreviation VHS) is a consumer-level analog recording videotape-based cassette standard. It is widely deployed
+  and still used nowadays by a big amount of people. The world is now widely connected through Internet and VHS and their player VCR were not designed to be connected to Internet.
+  This specification was created to adress this issue : it is very useful for some user agent to be able to connect a VCR reader on their computer or smartphone and be able to 
+  read/record/stream their old VHS tapes.
   
   This specification defines an API supporting the VHS protocol, enabling web applications to enumerate and select VCR input and output devices on the client system and send and receive VHS frames.
   It is intended to enable video applications as well by providing low-level access to the VCR devices available on the users' systems.
-  At the same time, the Web VCR API is intended to become a semantic controller platform. 
+  At the same time, the Web VCR API is intended to become a semantic controller platform allowing you to perfom operation to control the underlaying hardware. 
   
   <h2 class="no-num no-toc" id=status>Status of this document</h2>
   <!--begin-status-->
 
-  <p>This is a public copy of the editors' draft. It is provided for
+  <p>This is a working draft. It is provided for
    discussion only and may change at any moment. Its publication here does
    not imply endorsement of its contents by W3C. Don't cite this document
    other than as work in progress.
@@ -118,25 +116,12 @@
   <p>The (<a
    href="http://lists.w3.org/Archives/Public/www-style/">archived</a>) public
    mailing list <a
-   href="mailto:www-style@w3.org?Subject=%5Bcss3-transitions%5D%20PUT%20SUBJECT%20HERE">
+   href="mailto:tape-wg@w3.org?Subject=%vhs-api%5D%20PUT%20SUBJECT%20HERE">
    tape-wg@w3.org</a> (see <a
    href="http://www.w3.org/Mail/Request">instructions</a>) is preferred for
    discussion of this specification. When sending e-mail, please put the text
    “css3-transitions” in the subject, preferably like this:
-   “[<!---->vcr-api<!---->] <em>…summary of comment…</em>”
-
-  <p>This document was produced by a group operating under the <a
-   href="/Consortium/Patent-Policy-20040205/">5 February 2004 W3C Patent
-   Policy</a>. W3C maintains a <a href="/2004/01/pp-impl/32061/status"
-   rel=disclosure>public list of any patent disclosures</a> made in
-   connection with the deliverables of the group; that page also includes
-   instructions for disclosing a patent. An individual who has actual
-   knowledge of a patent which the individual believes contains <a
-   href="/Consortium/Patent-Policy-20040205/#def-essential">Essential
-   Claim(s)</a> must disclose the information in accordance with <a
-   href="/Consortium/Patent-Policy-20040205/#sec-Disclosure">section 6 of the
-   W3C Patent Policy</a>.</p>
-  <!--end-status-->
+   “[<!---->vhs-api<!---->] <em>…summary of comment…</em>”
 
   <h2 class="no-num no-toc" id=contents>Table of Contents</h2>
   <!--begin-toc-->
