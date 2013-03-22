@@ -131,6 +131,7 @@
    <li><a href="#introduction"><span class=secno>1. </span>Introduction</a>
 
    <li><a href="#transitions"><span class=secno>2. </span>Transitions</a>
+   <li><a href="#security"><span class=secno>3. </span>Security</a>
    <li><a href="#acknowledgments"><span class=secno>8.
     </span>Acknowledgments</a>
 
@@ -157,22 +158,25 @@
     rewinding your cassette and enjoying the bleeding edge technology from a supporting
     User Agent.
 
-  <h2 id=transitions><span class=secno>2. </span><a
-   id=transitions->gi</a></h2>
-   
-  <div class=example>
-   <p style="display:none"> Example(s):
-
-   <pre>
-  div {
-    transition-property: opacity, left;
-    transition-duration: 2s, 4s;
-  }
-
+  <h2 id=Conformance><span class=secno>2. </span><a
+   id=Conformance->Conformance</a></h2>
+	As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.
+	The key words must, must not, required, should, should not, recommended, may, and optional in this specification are to be interpreted as described in [RFC2119].
+	This specification defines conformance criteria that apply to a single product: the user agent that implements the interfaces that it contains.
+	Implementations that use ECMAScript to implement the APIs defined in this specification must implement them in a manner consistent with the ECMAScript Bindings defined in the Web IDL specification [WEBIDL], as this specification uses that specification and terminology.
+  
+  <h2 id=security><span class=secno>3. </span><a
+   id=security->Security and privacy considerations</a></h2>
+  There are security and privacy concerns with adding the Web VHS API to the web platform:
+  <ol>
+  	<li>Allowing the enumeration of the user's VHS interfaces is a potential target for fingerprinting.</li>
+  	<li>A malicious website could potentially send control the user's hardware and send malicious commands that could lead to potential loss of data.<li>
+  <ol>
+  These issues will be further explored prior to this specification becoming a Recommendation.
   
   <h2 id=acknowledgments><span class=secno>8. </span>Acknowledgments</h2>
 
-  <p>Thanks especially to the feedback from the tape-wg.
+  <p>Thanks especially to the feedback from the tape-wg.</p>
 
   <h2 id=references><span class=secno>9. </span>References</h2>
 
