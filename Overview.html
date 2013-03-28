@@ -265,7 +265,7 @@
        <dd> The USB port number of which the VCR is connected. Passing -1 will perform a search on all USB ports to find the first available VCR.
       </dl>
   </dd>
-  
+  <dt> Note : User is expected to use VHSInput and VHSOuput in concert to control the VCR.</dt>
   
   <h2 id=VHSInput><span class=secno>6. </span><a
    id=VHSInput->VHSInput Interface</a></h2>
@@ -280,8 +280,6 @@
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">pause</a></span>();</span>
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">play</a></span>();</span>
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">eject</a></span>();</span>
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setVideoOutput</a></span>(HTMLElement* element);</span>
-		  };
 
 		  </pre>
       </div>
@@ -342,27 +340,6 @@
       <dd>
   </dd>
   
-  <dt> <b><dfn id=getvhsaccess>setVideoOutput</dfn></b>
-  
-  <dd>
-      <dl>
-
-       <dd> Set the video output on the element passed in parameter. The element should be a video tag to be able to render the video.
-       If a audio element is passed only the sound of the tape will be played.
-      </dl>
-      <dd>
-      
-    <i>Property :</i>
-      <dl>
-       <dt> <code><dfn
-        id=usb-port
-        title="TransitionEvent::propertyName">element</dfn></code> of
-        type <code>HTMLElement</code>, readonly
-
-       <dd> The element on which the VHS should be played, video element for both audio and video support, audio element for audio only playback.
-      </dl>
-  </dd>
-  
   <dt> Note : rewind(), forward(), pause(), play() are synchronous methods, the script execution is expected to be blocked.</dt>
   
   
@@ -375,7 +352,8 @@
 		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
 		  interface VHSOutput</span> {
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">streamToYouTube</a></span>(DOMString login, DOMString password);</span>
-		  };
+		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setVideoOutput</a></span>(HTMLElement* element);</span>
+		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setUpscaleVideoOutput</a></span>(DOMString quality);</span>
 
 		  </pre>
       </div>
@@ -411,6 +389,59 @@
       </dl>
       <br><br>
       <dt> Note : Two steps logins are not supported by this level.</dt>
+  </dd>
+  
+ <dt> <b><dfn id=getvhsaccess>setVideoOutput</dfn></b>
+  <dd>
+      <dl>
+
+       <dd> Set the video output on the element passed in parameter. The element should be a video tag to be able to render the video.
+       If a audio element is passed only the sound of the tape will be played.
+      </dl>
+      <dd>
+      
+    <i>Property :</i>
+      <dl>
+       <dt> <code><dfn
+        id=usb-port
+        title="TransitionEvent::propertyName">element</dfn></code> of
+        type <code>HTMLElement</code>, readonly
+
+       <dd> The element on which the VHS should be played, video element for both audio and video support, audio element for audio only playback.
+      </dl>
+  </dd>
+  
+   <dt> <b><dfn id=getvhsaccess>setUpscaleVideoOutput</dfn></b>
+  <dd>
+      <dl>
+
+       <dd> Set how the video should be upscaled, note that native VHS resolution is 333x480.
+      </dl>
+      <dd>
+      
+    <i>Property :</i>
+      <dl>
+       <dt> <code><dfn
+        id=usb-port
+        title="TransitionEvent::propertyName">quality</dfn></code> of
+        type <code>DOMString</code>, readonly
+		<br><br>
+       <dd> The value of the video output quality. Possible values are :
+       <ul>
+       <li>480i</li>
+       <li>576i</li>
+       <li>480p</li>
+       <li>576p</li>
+       <li>720p</li>
+       <li>1080i</li>
+       <li>1080p</li>
+       <li>2160p</li>
+       <li>4320p</li>
+       <li>8640p</li>
+       </ul>
+       
+       The final quality is at the discretion of the User Agent and how upscaling is implemented.
+      </dl>
   </dd>
   
   <h2 id=acknowledgments><span class=secno>8. </span>Acknowledgments</h2>
