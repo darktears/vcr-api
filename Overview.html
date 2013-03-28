@@ -205,7 +205,7 @@
   <dd>
       <dl>
 
-       <dd> Obtains an interface to enumerate and request access to VHS devices on the user's system. Returns true if there is a VCR connected to the User Agent, false otherwise. This method is a blocking
+       <dd> Obtains an interface to enumerate and request access to VHS devices on the user's system. Returns true if there is a VCR connected to the User Agent, false otherwise. This method is blocking
        and User Agent is required to block any other script execution (such a JS Workers for example).
       </dl>
   <dt> Note : This method does not have a callback for error handling, we expect that querying VHS devices is always a successful operation. After so many years on the market, VCR
@@ -266,7 +266,7 @@
       </dl>
   </dd>
   <dt> Note : User is expected to use VHSInput and VHSOuput in concert to control the VCR.</dt>
-  
+
   <h2 id=VHSInput><span class=secno>6. </span><a
    id=VHSInput->VHSInput Interface</a></h2>
    <dl>
@@ -391,12 +391,13 @@
       <dt> Note : Two steps logins are not supported by this level.</dt>
   </dd>
   
+    <br><br>
  <dt> <b><dfn id=getvhsaccess>setVideoOutput</dfn></b>
   <dd>
       <dl>
 
-       <dd> Set the video output on the element passed in parameter. The element should be a video tag to be able to render the video.
-       If a audio element is passed only the sound of the tape will be played.
+       <dd> Set the video output on the element passed in parameter. The element parameter should be a video tag to be able to render the video.
+       If an audio element is passed only the sound of the tape will be played. All other types are ignored for now, future level may support Canvas.
       </dl>
       <dd>
       
@@ -410,7 +411,6 @@
        <dd> The element on which the VHS should be played, video element for both audio and video support, audio element for audio only playback.
       </dl>
   </dd>
-  
    <dt> <b><dfn id=getvhsaccess>setUpscaleVideoOutput</dfn></b>
   <dd>
       <dl>
