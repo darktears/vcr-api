@@ -274,7 +274,7 @@
    	 <div class=idl-code>
        <pre>
 		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
-		  interface VHSOutput</span> {
+		  interface VHSInput</span> {
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">rewind</a></span>();</span>
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">forward</a></span>();</span>
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">pause</a></span>();</span>
@@ -357,7 +357,51 @@
   
   <h2 id=VHSOuput><span class=secno>7. </span><a
    id=VHSInput->VHSOuput Interface</a></h2>
-  // TODO : Add streaming to youtube options
+  <dl>
+     <dt> <b>IDL Definition</b>
+   	 <div class=idl-code>
+       <pre>
+		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
+		  interface VHSOutput</span> {
+		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">streamToYouTube</a></span>(DOMString login, DOMString password);</span>
+		  };
+
+		  </pre>
+      </div>
+  </dl>
+  </dt>
+  </dd>
+  <p> <b>Methods</b>
+  <dt> <b><dfn id=getvhsaccess>streamToYouTube</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Stream the current tape to YouTube. User are expecting to launch the playback previously with <a href="#VHSInput">VHSInput</a> interface.
+      </dl>
+      <dd>
+  </dd>
+  
+    <i>Property :</i>
+      <dl>
+       <dt> <code><dfn
+        id=usb-port
+        title="propertyName">login</dfn></code> of
+        type <code>DOMString</code>, readonly
+
+       <dd> The login of the user.
+      </dl>
+      <dt> <code><dfn
+        id=usb-port
+        title="propertyName">password</dfn></code> of
+        type <code>DOMString</code>, readonly
+
+       <dd> The password of the user.
+      </dl>
+      <br><br>
+      <dt> Note : Two steps logins are not supported by this level.</dt>
+  </dd>
+  
   <h2 id=acknowledgments><span class=secno>8. </span>Acknowledgments</h2>
 
   <p>Thanks especially to the feedback from the tape-wg.
