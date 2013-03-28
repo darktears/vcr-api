@@ -132,6 +132,10 @@
 
    <li><a href="#conformance"><span class=secno>2. </span>Conformance</a>
    <li><a href="#security"><span class=secno>3. </span>Security</a>
+   <li><a href="#access"><span class=secno>4. </span>Obtaining Access to VHS Interfaces Available to the User Agent</a>
+   <li><a href="#accessInt"><span class=secno>5. </span>VHSAccess Interface</a>
+   <li><a href="#VHSInput"><span class=secno>6. </span>VHSInput Interface</a>
+   <li><a href="#VHSOuput"><span class=secno>7. </span>VHSOuput Interface</a>
    <li><a href="#acknowledgments"><span class=secno>8.
     </span>Acknowledgments</a>
 
@@ -179,6 +183,181 @@
   </ol>
   These issues will be further explored prior to this specification becoming a Recommendation.
   
+   <h2 id=access><span class=secno>4. </span><a
+   id=access->Obtaining Access to VHS Interfaces Available to the User Agent</a></h2>
+   <dl>
+     <dt> <b>IDL Definition</b>
+   	 <div class=idl-code>
+       <pre>
+		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
+		  interface NavigatorVHSAccess</span> {
+		  <span class="idlMethod"> <span><a>bool</a></span> <span class="idlMethName"><a href="#getvhsaccess">getVHSAccess</a></span>();</span>
+		  };
+
+		  </pre>
+      </div>
+  </dl>
+  </dt>
+  </dd>
+  <p> <b>Methods</b>
+  <dt> <b><dfn id=getvhsaccess>getVHSAccess</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Obtains an interface to enumerate and request access to VHS devices on the user's system. Returns true if there is a VCR connected to the User Agent, false otherwise. This method is a blocking
+       and User Agent is required to block any other script execution (such a JS Workers for example).
+      </dl>
+  <dt> Note : This method does not have a callback for error handling, we expect that querying VHS devices is always a successful operation. After so many years on the market, VCR
+  are very stable and robust hardware.</dt>
+  
+   <h2 id=accessInt><span class=secno>5. </span><a
+   id=accessInt->VHSAccess Interface</a></h2>
+   <dl>
+     <dt> <b>IDL Definition</b>
+   	 <div class=idl-code>
+       <pre>
+		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
+		  interface VHSAccess</span> {
+		  <span class="idlMethod"> <span><a>VHSInput</a></span> <span class="idlMethName"><a href="#getInput">getInput</a></span>(short usb_port);</span>
+		  <span class="idlMethod"> <span><a>VHSOuput</a></span> <span class="idlMethName"><a href="#getOuput">getOuput</a></span>(short usb_port);</span>
+		  };
+
+		  </pre>
+      </div>
+  </dl>
+  </dt>
+  </dd>
+  <p> <b>Methods</b>
+  <dt> <b><dfn id=getvhsaccess>getInput</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Obtains an VHSInput which you can manipulate to perform input (or commonly named write) operations on a VCR.
+      </dl>
+      <dd>
+      <i>Property :</i>
+      <dl>
+       <dt> <code><dfn
+        id=usb-port
+        title="TransitionEvent::propertyName">usb_port</dfn></code> of
+        type <code>short</code>, readonly
+
+       <dd> The USB port number of which the VCR is connected. Passing -1 will perform a search on all USB ports to find the first available VCR.
+      </dl>
+  </dd>
+   <dt> <b><dfn id=getvhsaccess>getOuput</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Obtains an VHSOutput which you can manipulate to perform output (or commonly named read) operations on a VCR.
+      </dl>
+      <dd>
+      <i>Property :</i>
+      <dl>
+       <dt> <code><dfn
+        id=usb-port
+        title="TransitionEvent::propertyName">usb_port</dfn></code> of
+        type <code>short</code>, readonly
+
+       <dd> The USB port number of which the VCR is connected. Passing -1 will perform a search on all USB ports to find the first available VCR.
+      </dl>
+  </dd>
+  
+  
+  <h2 id=VHSInput><span class=secno>6. </span><a
+   id=VHSInput->VHSInput Interface</a></h2>
+   <dl>
+     <dt> <b>IDL Definition</b>
+   	 <div class=idl-code>
+       <pre>
+		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
+		  interface VHSOutput</span> {
+		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">rewind</a></span>();</span>
+		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">forward</a></span>();</span>
+		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">pause</a></span>();</span>
+		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">play</a></span>();</span>
+		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setVideoOutput</a></span>(HTMLElement* element);</span>
+		  };
+
+		  </pre>
+      </div>
+  </dl>
+  </dt>
+  </dd>
+  <p> <b>Methods</b>
+  <dt> <b><dfn id=getvhsaccess>rewind</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Rewind the current tape inside the VCR. VCRs are unable to tell the length of the tape and the current progress. There is
+       therefore no information on the current progress of rewinding the tape.
+      </dl>
+      <dd>
+  </dd>
+  
+    <dt> <b><dfn id=getvhsaccess>forward</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Forward the current tape inside the VCR. VCRs are unable to tell the length of the tape and the current progress. There is
+       therefore no information on the current progress of forwarding the tape.
+      </dl>
+      <dd>
+  </dd>
+  
+  
+    <dt> <b><dfn id=getvhsaccess>play</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Launch playback of the current tape inside the VCR.
+      </dl>
+      <dd>
+  </dd>
+  
+      <dt> <b><dfn id=getvhsaccess>pause</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Pause the playback of the current tape inside the VCR.
+      </dl>
+      <dd>
+  </dd>
+  
+  <dt> <b><dfn id=getvhsaccess>setVideoOutput</dfn></b>
+  
+  <dd>
+      <dl>
+
+       <dd> Set the video output on the element passed in parameter. The element should be a video tag to be able to render the video.
+       If a audio element is passed only the sound of the tape will be played.
+      </dl>
+      <dd>
+      
+    <i>Property :</i>
+      <dl>
+       <dt> <code><dfn
+        id=usb-port
+        title="TransitionEvent::propertyName">element</dfn></code> of
+        type <code>HTMLElement</code>, readonly
+
+       <dd> The element on which the VHS should be played, video element for both audio and video support, audio element for audio only playback.
+      </dl>
+  </dd>
+  
+  <dt> Note : rewind(), forward(), pause(), play() are synchronous methods, the script execution is expected to be blocked.</dt>
+  
+  
+  <h2 id=VHSOuput><span class=secno>7. </span><a
+   id=VHSInput->VHSOuput Interface</a></h2>
+  // TODO : Add streaming to youtube options
   <h2 id=acknowledgments><span class=secno>8. </span>Acknowledgments</h2>
 
   <p>Thanks especially to the feedback from the tape-wg.
