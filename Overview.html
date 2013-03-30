@@ -12,7 +12,6 @@
   <meta content=text name=dcterms.type>
   <meta content=2013-02-20 name=dcterms.issued>
   <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
-  <link href="../default.css" rel=stylesheet type="text/css">
   <style type="text/css">
     table.animatable-properties {
       border-collapse: collapse;
@@ -51,15 +50,7 @@
 
     <dd><a href="mailto:alexis@webkit.org">Alexis Menard</a>
       
-    <dd><a href="mailto:jchaffraix@webkit.org">Julien Chaffraix</a>
-      
     <dd><a href="mailto:benjamin@webkit.org">Benjamin Poulain</a>
-
-    <dt>Issues list:
-
-    <dd><a
-     href="https://www.w3.org/Bugs/Public/buglist.cgi?query_format=advanced&amp;product=CSS&amp;component=VHS&amp;resolution=---&amp;cmdtype=doit">in
-     Bugzilla</a>
 
     <dt>Discussion:
 
@@ -136,10 +127,11 @@
    <li><a href="#accessInt"><span class=secno>5. </span>VHSAccess Interface</a>
    <li><a href="#VHSInput"><span class=secno>6. </span>VHSInput Interface</a>
    <li><a href="#VHSOuput"><span class=secno>7. </span>VHSOuput Interface</a>
-   <li><a href="#acknowledgments"><span class=secno>8.
+   <li><a href="#Examples"><span class=secno>8. </span>Examples</a>
+   <li><a href="#acknowledgments"><span class=secno>9.
     </span>Acknowledgments</a>
 
-   <li><a href="#references"><span class=secno>9. </span>References</a>
+   <li><a href="#references"><span class=secno>10. </span>References</a>
     <ul class=toc>
      <li class=no-num><a href="#normative-references">Normative
       references</a>
@@ -189,9 +181,9 @@
      <dt> <b>IDL Definition</b>
    	 <div class=idl-code>
        <pre>
-		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
-		  interface NavigatorVHSAccess</span> {
-		  <span class="idlMethod"> <span><a>bool</a></span> <span class="idlMethName"><a href="#getvhsaccess">getVHSAccess</a></span>();</span>
+		  <span id=NavigatorVHSAccess>
+		  partial interface Navigator</span> {
+		  <span class="idlMethod"> <span><a>VHSAccess</a></span> <span class="idlMethName"><a href="#getvhsaccess">getVHSAccess</a></span>();</span>
 		  };
 
 		  </pre>
@@ -205,7 +197,7 @@
   <dd>
       <dl>
 
-       <dd> Obtains an interface to enumerate and request access to VHS devices on the user's system. Returns true if there is a VCR connected to the User Agent, false otherwise. This method is blocking
+       <dd> Obtains an interface to enumerate and request access to VHS devices on the user's system. Returns a VHSAccess if there is a VCR connected to the User Agent, null otherwise. This method is blocking
        and User Agent is required to block any other script execution (such a JS Workers for example).
       </dl>
   <dt> Note : This method does not have a callback for error handling, we expect that querying VHS devices is always a successful operation. After so many years on the market, VCR
@@ -217,7 +209,7 @@
      <dt> <b>IDL Definition</b>
    	 <div class=idl-code>
        <pre>
-		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
+		  <span id=VHSAccess>[NoInterfaceObject]
 		  interface VHSAccess</span> {
 		  <span class="idlMethod"> <span><a>VHSInput</a></span> <span class="idlMethName"><a href="#getInput">getInput</a></span>(short usb_port);</span>
 		  <span class="idlMethod"> <span><a>VHSOuput</a></span> <span class="idlMethName"><a href="#getOuput">getOuput</a></span>(short usb_port);</span>
@@ -273,7 +265,7 @@
      <dt> <b>IDL Definition</b>
    	 <div class=idl-code>
        <pre>
-		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
+		  <span id=VHSInput>[NoInterfaceObject]
 		  interface VHSInput</span> {
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">rewind</a></span>();</span>
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">forward</a></span>();</span>
@@ -349,7 +341,7 @@
      <dt> <b>IDL Definition</b>
    	 <div class=idl-code>
        <pre>
-		  <span id=NavigatorVHSAccess>[NoInterfaceObject]
+		  <span id=VHSOutput>[NoInterfaceObject]
 		  interface VHSOutput</span> {
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">streamToYouTube</a></span>(DOMString login, DOMString password);</span>
 		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setVideoOutput</a></span>(HTMLElement* element);</span>
@@ -444,11 +436,35 @@
       </dl>
   </dd>
   
-  <h2 id=acknowledgments><span class=secno>8. </span>Acknowledgments</h2>
+  <h2 id=Examples><span class=secno>8. </span><a
+   id=Examples->Examples</a></h2>
+   <i>This section is non-normative.</i>
+  <pre class="example" style="border-color: #E0CB52; border-left-width: .5em; border-left-style: solid; padding: .5em;">
+        vhs = window.navigator.getVHSAccess();
+        if (!vhs)
+            return;
+
+        vhsOutput = null;
+        for (i = 0; i < 42; ++i) {
+            vhsOutput = vhs.getOutput(i);
+            if (vhsOutput)
+                break;
+        }
+
+        if (!vhsOutput)
+            return;
+
+        // We have a VHS, let's have some fun.
+        while (true) {
+            vhsOutput.play();
+            vhsOutput.rewind();
+        }
+  </pre>
+  <h2 id=acknowledgments><span class=secno>9. </span>Acknowledgments</h2>
 
   <p>Thanks especially to the feedback from the tape-wg.
 
-  <h2 id=references><span class=secno>9. </span>References</h2>
+  <h2 id=references><span class=secno>10. </span>References</h2>
 
   <h3 class=no-num id=normative-references>Normative references</h3>
   <!--begin-normative-->
