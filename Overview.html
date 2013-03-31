@@ -181,10 +181,10 @@
    <dl>
      <dt> <b>IDL Definition</b>
    	 <div class=idl-code>
-       <pre>
+       <pre class=idl>
 		  <span id=NavigatorVHSAccess>
 		  partial interface Navigator</span> {
-		  <span class="idlMethod"> <span><a>VHSAccess</a></span> <span class="idlMethName"><a href="#getvhsaccess">getVHSAccess</a></span>();</span>
+		  <span class="idlMethod">    <span><a>VHSAccess</a></span> <span class="idlMethName"><a href="#getvhsaccess">getVHSAccess</a></span>();</span>
 		  };
 
 		  </pre>
@@ -212,8 +212,8 @@
        <pre>
 		  <span id=VHSAccess>[NoInterfaceObject]
 		  interface VHSAccess</span> {
-		  <span class="idlMethod"> <span><a>VHSInput</a></span> <span class="idlMethName"><a href="#getInput">getInput</a></span>(short usb_port);</span>
-		  <span class="idlMethod"> <span><a>VHSOuput</a></span> <span class="idlMethName"><a href="#getOuput">getOuput</a></span>(short usb_port);</span>
+		  <span class="idlMethod">    <span><a>VHSInput</a></span> <span class="idlMethName"><a href="#getInput">getInput</a></span>(short usb_port);</span>
+		  <span class="idlMethod">    <span><a>VHSOuput</a></span> <span class="idlMethName"><a href="#getOuput">getOuput</a></span>(short usb_port);</span>
 		  };
 
 		  </pre>
@@ -268,12 +268,12 @@
        <pre>
 		  <span id=VHSInput>[NoInterfaceObject]
 		  interface VHSInput</span> {
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">rewind</a></span>();</span>
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">forward</a></span>();</span>
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">pause</a></span>();</span>
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">play</a></span>();</span>
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">eject</a></span>();</span>
-
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">rewind</a></span>();</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">forward</a></span>();</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">pause</a></span>();</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">play</a></span>();</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">eject</a></span>();</span>
+		  }
 		  </pre>
       </div>
   </dl>
@@ -344,10 +344,10 @@
        <pre>
 		  <span id=VHSOutput>[NoInterfaceObject]
 		  interface VHSOutput</span> {
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">streamToYouTube</a></span>(DOMString login, DOMString password);</span>
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setVideoOutput</a></span>(HTMLElement* element);</span>
-		  <span class="idlMethod"> <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setUpscaleVideoOutput</a></span>(DOMString quality);</span>
-
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">streamToYouTube</a></span>(DOMString login, DOMString password);</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setVideoOutput</a></span>(HTMLElement* element);</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setUpscaleVideoOutput</a></span>(DOMString quality);</span>
+		  }
 		  </pre>
       </div>
   </dl>
