@@ -116,7 +116,7 @@
    <li><a href="#introduction"><span class=secno>1. </span>Introduction</a>
 
    <li><a href="#conformance"><span class=secno>2. </span>Conformance</a>
-   <li><a href="#security"><span class=secno>3. </span>Security</a>
+   <li><a href="#privacy"><span class=secno>3. </span>Privacy</a>
    <li><a href="#access"><span class=secno>4. </span>Obtaining Access to VHS Interfaces Available to the User Agent</a>
    <li><a href="#accessInt"><span class=secno>5. </span>VHSAccess Interface</a>
    <li><a href="#VHSInput"><span class=secno>6. </span>VHSInput Interface</a>
@@ -165,14 +165,16 @@
 	This specification defines conformance criteria that apply to a single product: the user agent that implements the interfaces that it contains.
 	Implementations that use ECMAScript to implement the APIs defined in this specification must implement them in a manner consistent with the ECMAScript Bindings defined in the Web IDL specification [WEBIDL], as this specification uses that specification and terminology.
   
-  <h2 id=security><span class=secno>3. </span><a
-   id=security->Security and privacy considerations</a></h2>
-  There are security and privacy concerns with adding the Web VHS API to the web platform:
+  <h2 id=privacy><span class=secno>3. </span><a
+   id=security->Privacy considerations</a></h2>
+  There are privacy concerns with adding the Web VHS API to the web platform:
   <ol>
   	<li>Allowing the enumeration of the user's VHS interfaces is a potential target for fingerprinting.</li>
-  	<li>A malicious website could potentially send control the user's hardware and send malicious commands that could lead to potential loss of data.</li>
+    <li>A malicious website could read the content of a tape without the user consent.</li>
   </ol>
-  These issues will be further explored prior to this specification becoming a Recommendation.
+  <p>
+  To address the issues, the specifications follows the state of the art privacy strategy:
+  "If you have something that you don't want anyone to know, maybe you shouldn't be doing it in the first place."</p>
   
    <h2 id=access><span class=secno>4. </span><a
    id=access->Obtaining Access to VHS Interfaces Available to the User Agent</a></h2>
