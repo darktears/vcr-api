@@ -120,7 +120,7 @@
    <li><a href="#access"><span class=secno>4. </span>Obtaining Access to VHS Interfaces Available to the User Agent</a>
    <li><a href="#accessInt"><span class=secno>5. </span>VHSAccess Interface</a>
    <li><a href="#VHSInput"><span class=secno>6. </span>VHSInput Interface</a>
-   <li><a href="#VHSOuput"><span class=secno>7. </span>VHSOuput Interface</a>
+   <li><a href="#VHSOutput"><span class=secno>7. </span>VHSOutput Interface</a>
    <li><a href="#Examples"><span class=secno>8. </span>Examples</a>
    <li><a href="#acknowledgments"><span class=secno>9.
     </span>Acknowledgments</a>
@@ -216,7 +216,7 @@
 		  <span id=VHSAccess>
 		  interface VHSAccess</span> {
 		  <span class="idlMethod">    <span><a>VHSInput</a></span> <span class="idlMethName"><a href="#getInput">getInput</a></span>(float usb_port);</span>
-		  <span class="idlMethod">    <span><a>VHSOuput</a></span> <span class="idlMethName"><a href="#getOuput">getOuput</a></span>(float usb_port);</span>
+		  <span class="idlMethod">    <span><a>VHSOutput</a></span> <span class="idlMethName"><a href="#getOutput">getOutput</a></span>(float usb_port);</span>
 		  };
 
 		  </pre>
@@ -243,7 +243,7 @@
        <dd> The USB port number of which the VCR is connected. Passing -1 will perform a search on all USB ports to find the first available VCR.
       </dl>
   </dd>
-   <dt> <b><dfn id=getvhsaccess>getOuput</dfn></b>
+   <dt> <b><dfn id=getvhsaccess>getOutput</dfn></b>
   
   <dd>
       <dl>
@@ -263,7 +263,7 @@
   </dd>
   <p>The user agent must round the input number to the closest integer. If the number is exactly between two integers,
   user agents are free to round to either integer.</p>
-  <dt> Note : User is expected to use VHSInput and VHSOuput in concert to control the VCR.</dt>
+  <dt> Note : User is expected to use VHSInput and VHSOutput in concert to control the VCR.</dt>
 
   <h2 id=VHSInput><span class=secno>6. </span><a
    id=VHSInput->VHSInput Interface</a></h2>
@@ -275,9 +275,9 @@
 		  interface VHSInput</span> {
 		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">rewind</a></span>();</span>
 		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">forward</a></span>(float revolution);</span>
-		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">pause</a></span>();</span>
-		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">play</a></span>();</span>
-		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">eject</a></span>();</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOutput">pause</a></span>();</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOutput">play</a></span>();</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOutput">eject</a></span>();</span>
 		  }
 		  </pre>
       </div>
@@ -353,17 +353,17 @@
   <dt> Note : rewind(), forward(), pause() and eject() are synchronous methods, the script execution is expected to be blocked.</dt>
   
   
-  <h2 id=VHSOuput><span class=secno>7. </span><a
-   id=VHSInput->VHSOuput Interface</a></h2>
+  <h2 id=VHSOutput><span class=secno>7. </span><a
+   id=VHSInput->VHSOutput Interface</a></h2>
   <dl>
      <dt> <b>IDL Definition</b>
    	 <div class=idl-code>
        <pre>
 		  <span id=VHSOutput>
 		  interface VHSOutput</span> {
-		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">streamToYouTube</a></span>(DOMString login, DOMString password);</span>
-		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setVideoOutput</a></span>(HTMLElement* element);</span>
-		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">setUpscaleVideoOutput</a></span>(DOMString quality);</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOutput">streamToYouTube</a></span>(DOMString login, DOMString password);</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOutput">setVideoOutput</a></span>(HTMLElement* element);</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOutput">setUpscaleVideoOutput</a></span>(DOMString quality);</span>
 		  }
 		  </pre>
       </div>
