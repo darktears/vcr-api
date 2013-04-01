@@ -212,8 +212,8 @@
        <pre>
 		  <span id=VHSAccess>[NoInterfaceObject]
 		  interface VHSAccess</span> {
-		  <span class="idlMethod">    <span><a>VHSInput</a></span> <span class="idlMethName"><a href="#getInput">getInput</a></span>(short usb_port);</span>
-		  <span class="idlMethod">    <span><a>VHSOuput</a></span> <span class="idlMethName"><a href="#getOuput">getOuput</a></span>(short usb_port);</span>
+		  <span class="idlMethod">    <span><a>VHSInput</a></span> <span class="idlMethName"><a href="#getInput">getInput</a></span>(float usb_port);</span>
+		  <span class="idlMethod">    <span><a>VHSOuput</a></span> <span class="idlMethName"><a href="#getOuput">getOuput</a></span>(float usb_port);</span>
 		  };
 
 		  </pre>
@@ -235,7 +235,7 @@
        <dt> <code><dfn
         id=usb-port
         title="TransitionEvent::propertyName">usb_port</dfn></code> of
-        type <code>short</code>, readonly
+        type <code>float</code>, readonly
 
        <dd> The USB port number of which the VCR is connected. Passing -1 will perform a search on all USB ports to find the first available VCR.
       </dl>
@@ -253,11 +253,13 @@
        <dt> <code><dfn
         id=usb-port
         title="TransitionEvent::propertyName">usb_port</dfn></code> of
-        type <code>short</code>, readonly
+        type <code>float</code>, readonly
 
        <dd> The USB port number of which the VCR is connected. Passing -1 will perform a search on all USB ports to find the first available VCR.
       </dl>
   </dd>
+  <p>The user agent must round the input number to the closest integer. If the number is exactly between two integers,
+  user agents are free to round to either integer.</p>
   <dt> Note : User is expected to use VHSInput and VHSOuput in concert to control the VCR.</dt>
 
   <h2 id=VHSInput><span class=secno>6. </span><a
