@@ -271,7 +271,7 @@
 		  <span id=VHSInput>
 		  interface VHSInput</span> {
 		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">rewind</a></span>();</span>
-		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">forward</a></span>();</span>
+		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getInput">forward</a></span>(float revolution);</span>
 		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">pause</a></span>();</span>
 		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">play</a></span>();</span>
 		  <span class="idlMethod">    <span><a>void</a></span> <span class="idlMethName"><a href="#getOuput">eject</a></span>();</span>
@@ -288,7 +288,8 @@
       <dl>
 
        <dd> Rewind the current tape inside the VCR. VCRs are unable to tell the length of the tape and the current progress. There is
-       therefore no information on the current progress of rewinding the tape.
+       therefore no information on the current progress of rewinding the tape.</dd>
+       <dd> The method throws a "<code>BrokeTheTape</code>" exception if the reader detects a lack of resistance on the rewind motor.</dd>
       </dl>
       <dd>
   </dd>
@@ -299,9 +300,19 @@
       <dl>
 
        <dd> Forward the current tape inside the VCR. VCRs are unable to tell the length of the tape and the current progress. There is
-       therefore no information on the current progress of forwarding the tape.
+       therefore no information on the current progress of forwarding the tape.</dd>
+       <dd> The method throws a "<code>BrokeTheTape</code>" exception if the reader detects a lack of resistance on the rewind motor.</dd>
       </dl>
-      <dd>
+
+      <i>Property :</i>
+      <dl>
+       <dt> <code><dfn
+        id=revoluation
+        title="TransitionEvent::propertyName">revolution</dfn></code> of
+        type <code>float</code>, readonly
+
+       <dd>The number of revolution run by the motor.</dd>
+      </dl>
   </dd>
   
   
@@ -330,12 +341,13 @@
   <dd>
       <dl>
 
-       <dd> Eject the current tape inside the VCR. The execution of this method is expected to be around 2-3 seconds.
+       <dd> Eject the current tape inside the VCR. The execution of this method is expected to be around 2-3 seconds,
+           user agents should warn the user the browser will become unresponsive.
       </dl>
       <dd>
   </dd>
   
-  <dt> Note : rewind(), forward(), pause(), play() are synchronous methods, the script execution is expected to be blocked.</dt>
+  <dt> Note : rewind(), forward(), pause() and eject() are synchronous methods, the script execution is expected to be blocked.</dt>
   
   
   <h2 id=VHSOuput><span class=secno>7. </span><a
