@@ -454,25 +454,27 @@
   <h2 id=Examples><span class=secno>8. </span><a
    id=Examples->Examples</a></h2>
    <i>This section is non-normative.</i>
+   <p>This example demonstrates how to write a tape rewinder with the Web VHS API:</p>
   <pre class="example" style="border-color: #E0CB52; border-left-width: .5em; border-left-style: solid; padding: .5em;">
-        vhs = window.navigator.getVHSAccess();
-        if (!vhs)
-            return;
+        var vhs = window.navigator.getVHSAccess();
 
-        vhsOutput = null;
-        for (i = 0; i < 42; ++i) {
-            vhsOutput = vhs.getOutput(i);
-            if (vhsOutput)
+        var vhsInput = null;
+        for (i = 0; i < Infinity; ++i) {
+            vhsInput = vhs.getInput(i);
+            if (vhsInput)
                 break;
         }
 
-        if (!vhsOutput)
+        if (!vhsInput)
             return;
 
-        // We have a VHS, let's have some fun.
-        while (true) {
-            vhsOutput.play();
-            vhsOutput.rewind();
+        try {
+            vhsInput.rewind();
+            vhsInput.eject();
+        } catch(e) {
+            if (e instanceof BrokeTheTape) {
+                alert("Sorry.").
+            }
         }
   </pre>
   <h2 id=acknowledgments><span class=secno>9. </span>Acknowledgments</h2>
